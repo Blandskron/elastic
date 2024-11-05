@@ -61,7 +61,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"name\": \"John Doe\",\n  \"age\": 30,\n  \"email\": \"johndoe@example.com\"\n}",
+					"raw": "{\n  \"name\": \"bastian\",\n  \"age\": 33,\n  \"email\": \"blandskron2024@example.com\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -69,7 +69,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:9200/my_index/_doc/1",
+					"raw": "http://localhost:9200/my_index/_doc/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -78,7 +78,7 @@
 					"path": [
 						"my_index",
 						"_doc",
-						"1"
+						"3"
 					]
 				}
 			},
@@ -136,11 +136,23 @@
 		},
 		{
 			"name": "Buscar por nombre",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"query\": {\r\n    \"match\": {\r\n      \"name\": \"bastian\"\r\n    }\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:9200/my_index/_search",
+					"raw": "http://localhost:9200/my_index/_search/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -148,7 +160,8 @@
 					"port": "9200",
 					"path": [
 						"my_index",
-						"_search"
+						"_search",
+						""
 					]
 				}
 			},
@@ -161,10 +174,15 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"doc\": {\n    \"age\": 31\n  }\n}"
+					"raw": "{\n  \"doc\": {\n    \"age\": 37\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
-					"raw": "http://localhost:9200/my_index/_update/1",
+					"raw": "http://localhost:9200/my_index/_update/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -173,7 +191,7 @@
 					"path": [
 						"my_index",
 						"_update",
-						"1"
+						"3"
 					]
 				}
 			},
