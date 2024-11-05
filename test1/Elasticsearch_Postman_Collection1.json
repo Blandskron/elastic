@@ -1,0 +1,122 @@
+{
+    "info": {
+      "name": "Elasticsearch Collection",
+      "_postman_id": "1c9dfe8d-7af8-4d9b-9f12-7bbdd948e8d3",
+      "description": "Collection for Elasticsearch basic requests",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Check Cluster Health",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:9200/_cluster/health",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "9200",
+            "path": ["_cluster", "health"]
+          }
+        }
+      },
+      {
+        "name": "Create Index",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:9200/my_index",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "9200",
+            "path": ["my_index"]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"settings\": {\n    \"number_of_shards\": 1,\n    \"number_of_replicas\": 1\n  }\n}"
+          }
+        }
+      },
+      {
+        "name": "Index a Document",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:9200/my_index/_doc/1",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "9200",
+            "path": ["my_index", "_doc", "1"]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"John Doe\",\n  \"age\": 30,\n  \"occupation\": \"Software Developer\"\n}"
+          }
+        }
+      },
+      {
+        "name": "Get Document",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:9200/my_index/_doc/1",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "9200",
+            "path": ["my_index", "_doc", "1"]
+          }
+        }
+      },
+      {
+        "name": "Search Documents",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:9200/my_index/_search",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "9200",
+            "path": ["my_index", "_search"]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"query\": {\n    \"match\": {\n      \"occupation\": \"Software Developer\"\n    }\n  }\n}"
+          }
+        }
+      },
+      {
+        "name": "Delete Index",
+        "request": {
+          "method": "DELETE",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:9200/my_index",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "9200",
+            "path": ["my_index"]
+          }
+        }
+      }
+    ]
+  }
+  
