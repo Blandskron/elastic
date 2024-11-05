@@ -56,8 +56,8 @@ La colección de Postman se utiliza para realizar varias operaciones en un índi
 6. **Buscar por nombre**
    - **Método**: `GET`
    - **URL**: `http://localhost:9200/my_index/_search`
-      - **Cuerpo**:
-     ```json
+   - **Cuerpo**:
+    ```json
     {
     "query": {
         "match": {
@@ -65,7 +65,7 @@ La colección de Postman se utiliza para realizar varias operaciones en un índi
         }
     }
     }
-     ```
+    ```
 
 7. **Actualizar documento**
    - **Método**: `POST`
